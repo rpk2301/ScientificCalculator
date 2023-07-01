@@ -5,7 +5,8 @@ import org.sonatype.guice.bean.containers.Main;
 import java.lang.invoke.SwitchPoint;
 import java.util.Scanner;
 public class Arithmetic {
-    String welcome = ("|----------------------------------------------------------------------------------------------------|" + '\n') +
+    String welcome =
+            ("|----------------------------------------------------------------------------------------------------|" + '\n') +
             ("|                                   Welcome Menu                                  a) Addition        |" + '\n') +
             ("|                                                                                 s) Subtraction     |" + '\n') +
             ("|                                                                                 m) Multiplication  |" + '\n') +
@@ -13,7 +14,8 @@ public class Arithmetic {
             ("|                                                                                 q) Square          |" + '\n') +
             ("|                                                                                 r) Square Root     |" + '\n') +
             ("|                                                                                 i) Inverse         |" + '\n') +
-            ("|----------------------------------------------------------------------------------------------------|" + '\n');
+            ("|                                                                                 c) Check Memory    |" + '\n') +
+            ("|----------------------------------------------------------------------------------------------------|"+'\n');
 
     public Arithmetic() {
     }
@@ -48,6 +50,8 @@ public class Arithmetic {
             case 'i':
                 inv(run());
                 break;
+            case 'c':
+                DisplayMemory(run());
             default:
                 System.out.println("");
                 System.out.println("");
@@ -72,14 +76,14 @@ public class Arithmetic {
     public static double add(Scanner response) {
 
         String addi = ("|----------------------------------------------------------------------------------------------------|" + '\n') +
-                      ("|                                   Calculation Menu                                                 |" + '\n') +
-                      ("|                                                                                                    |" + '\n') +
-                      ("|                                                                                                    |" + '\n') +
-                      ("|Please enter the number you would like to add first:                                                |" + '\n') +
-                      ("|                                                                                                    |" + '\n') +
-                      ("|                                                                                                    |" + '\n') +
-                      ("|                                                                                                    |" + '\n') +
-                      ("|----------------------------------------------------------------------------------------------------|" + '\n');
+                ("|                                   Calculation Menu                                                 |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|Please enter the number you would like to add first:                                                |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|----------------------------------------------------------------------------------------------------|" + '\n');
         System.out.println(addi);
         double ret1 = response.nextDouble();
         String add2 = ("|----------------------------------------------------------------------------------------------------|" + '\n') +
@@ -267,32 +271,31 @@ public class Arithmetic {
             System.out.println("Restarting now");
             try {
                 Thread.sleep(3000);
-            } catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
             inv(run());
 
 
         }
-        double inv = 1/ret2;
+        double inv = 1 / ret2;
         MainApplication.setval(inv);
         return (1 / ret2);
     }
 
-    public void results(Scanner response2)
-    {
+    public void results(Scanner response2) {
 
-    double res = MainApplication.getCurrentVal();
+        double res = MainApplication.getCurrentVal();
 
         String addi = ("|----------------------------------------------------------------------------------------------------|" + '\n') +
-                      ("|                                   Results Menu                                                     |" + '\n') +
-                      ("|                                                          a)Clear display and do a new calculation  |" + '\n') +
-                      ("|                                                          b)Store result in memory                  |" + '\n') +
-                      ("|The result of your calculation is:    " +res+ "                c)Quit App                                |" + '\n') +
-                      ("|                                                                                                    |" + '\n') +
-                      ("|Please select what you would like to do next                                                        |" + '\n') +
-                      ("|                                                                                                    |" + '\n') +
-                      ("|----------------------------------------------------------------------------------------------------|" + '\n');
+                ("|                                   Results Menu                                                     |" + '\n') +
+                ("|                                                          a)Clear display and do a new calculation  |" + '\n') +
+                ("|                                                          b)Store result in memory                  |" + '\n') +
+                ("|The result of your calculation is:    " + res + "                c)Quit App                           |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|Please select what you would like to do next                                                        |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|----------------------------------------------------------------------------------------------------|" + '\n');
         System.out.println(addi);
         String response = response2.nextLine();
         char character = response.toLowerCase().charAt(0);
@@ -301,7 +304,8 @@ public class Arithmetic {
                 ClearDisplay();
                 break;
             case 'b':
-               // StoreMem;
+                StoreMemory(res);
+                DisplayMenu(run());
                 break;
             case 'c':
                 QuitApp();
@@ -327,29 +331,69 @@ public class Arithmetic {
 
     }
 
-    public void QuitApp()
-    {
+    public void QuitApp() {
         System.exit(0);
     }
 
-    public void ClearDisplay()
-    {
+    public void ClearDisplay() {
         MainApplication.setval(0);
         DisplayMenu(run());
     }
 
 
-
-
-        public static Scanner run()
-    {
+    public static Scanner run() {
         Scanner response = new Scanner(System.in);
         return response;
     }
 
+    public void StoreMemory(double CurrentValue) {
+        MainApplication.setMemory(CurrentValue);
+    }
+
+    public void DisplayMemory(Scanner scan) {
+
+        String menu = ("|----------------------------------------------------------------------------------------------------|" + '\n') +
+                ("|                                   Memory Menu            a)Go back to main menu                    |" + '\n') +
+                ("|                                                          b)Clear memory                            |" + '\n') +
+                ("|                                                          c)Quit App                                |" + '\n') +
+                ("|The current value of your memory is:     " + MainApplication.getMemory() + "                          |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|Please select what you would like to do next                                                        |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|----------------------------------------------------------------------------------------------------|" + '\n');
+        System.out.println(menu);
+        String scanf = scan.nextLine();
+        char character = scanf.toLowerCase().charAt(0);
+        switch (character) {
+            case 'a':
+                DisplayMenu(run());
+                break;
+            case 'b':
+                MainApplication.setMemory(0);
+                DisplayMenu(run());
+                break;
+            case 'c':
+                QuitApp();
+                break;
+            default:
+                System.out.println("");
+                System.out.println("");
+                System.out.println("You have selected an invalid input.");
+                System.out.println("Waiting three seconds and restarting");
+                try {
+                    Thread.sleep(3000); // Pause for 5 seconds (5000 milliseconds)
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Program Resuming");
+                try {
+                    Thread.sleep(2000); // Pause for 5 seconds (5000 milliseconds)
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                DisplayMemory(run());
+        }
 
 
-
-
-
+    }
 }

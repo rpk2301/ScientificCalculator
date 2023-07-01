@@ -5,6 +5,11 @@ import java.util.Scanner;
  */
 public class MainApplication {
 private static double CurrentValue=0;
+
+
+
+
+    private static double Memory = 0;
     public MainApplication()
     {
 
@@ -16,6 +21,12 @@ private static double CurrentValue=0;
     public static double getCurrentVal()
     {
         return CurrentValue;
+    }
+    public static double getMemory() {
+        return Memory;
+    }
+    public static void setMemory(double memory) {
+        Memory = memory;
     }
     public  static  double  setval(double f)
     {
