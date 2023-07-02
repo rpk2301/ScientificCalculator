@@ -91,4 +91,72 @@ public class TestArithmetic {
         double result = arithmetic.div(in);
         Assert.assertEquals(result, 4.42);
     }
+    /*
+    @Test
+    public void testDivisionBy0(){
+        in = new Scanner("17 0");
+
+        double result = arithmetic.div(in);
+        // not sure what the assert statement should be at the moment
+        Assert.assertEquals(result, 4.42);
+    }
+    */
+    /*
+     * Square tests
+     */
+    @Test
+    public void testSquareInts(){
+        in = new Scanner("17");
+
+        double result = arithmetic.square(in);
+        Assert.assertEquals(result, 17.0*17.0);
+    }
+
+    @Test
+    public void testSquareDoubles(){
+        in = new Scanner("1.7");
+
+        double result = arithmetic.square(in);
+        Assert.assertEquals(result, 1.7*1.7);
+    }
+
+    /*
+     * Square Root tests
+     */
+    @Test
+    public void testSquareRootInts(){
+        in = new Scanner("169");
+
+        double result = arithmetic.sqrt(in);
+        Assert.assertEquals(result, 13.0);
+    }
+
+    @Test
+    public void testSquareRootDoubles(){
+        in = new Scanner("1.69");
+
+        double result = arithmetic.sqrt(in);
+        Assert.assertEquals(result, 1.3);
+    }
+
+    /*
+     * Inverse tests
+     */
+    @Test
+    public void testInverse(){
+        in = new Scanner("17");
+
+        double result = arithmetic.inv(in);
+        Assert.assertEquals(result, 1.0/17.0);
+    }
+    /*
+    @Test
+    public void testInverseOf0(){
+        in = new Scanner("0");
+
+        double result = arithmetic.div(in);
+        // not sure what the assert statement should be at the moment
+        Assert.assertEquals(result, 4.42);
+    }
+    */
 }
