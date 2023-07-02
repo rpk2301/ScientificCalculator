@@ -28,10 +28,14 @@ public class TestMainApplication {
         Assert.assertEquals(MainApplication.getMemory(), 9.1);
     }
 
-    // Note to Christine: write these after you understand how the program works
+    @Test
+    public void testInitialCurrentValue(){
+        Assert.assertEquals(MainApplication.getCurrentVal(), 0.0);
+    }
+
     @Test
     public void testSetCurrentValue(){
-        // MainApplication.setMemory(9.1);
-        // Assert.assertEquals(MainApplication.getMemory(), 9.1);
+         MainApplication.setval(9.1);
+         Assert.assertEquals(MainApplication.getCurrentVal(), 9.1);
     }
 }
