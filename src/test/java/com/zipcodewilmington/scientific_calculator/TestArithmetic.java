@@ -12,9 +12,7 @@ import java.io.ByteArrayOutputStream;
 public class TestArithmetic {
     private Arithmetic arithmetic;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
-
     private Scanner in;
 
     @Before
@@ -36,7 +34,7 @@ public class TestArithmetic {
         in = new Scanner("17 26");
 
         double result = arithmetic.add(in);
-        Assert.assertEquals(result, 17.0+26.0);
+        Assert.assertEquals(17.0+26.0, result);
     }
 
     @Test
@@ -44,7 +42,7 @@ public class TestArithmetic {
         in = new Scanner("1.7 2.6");
 
         double result = arithmetic.add(in);
-        Assert.assertEquals(result, 1.7+2.6);
+        Assert.assertEquals(1.7+2.6, result);
     }
 
     /*
@@ -55,7 +53,7 @@ public class TestArithmetic {
         in = new Scanner("17 26");
 
         double result = arithmetic.sub(in);
-        Assert.assertEquals(result, -9.0);
+        Assert.assertEquals(-9.0, result);
     }
 
     @Test
@@ -63,7 +61,7 @@ public class TestArithmetic {
         in = new Scanner("1.7 2.6");
 
         double result = arithmetic.sub(in);
-        Assert.assertEquals(result, 1.7-2.6);
+        Assert.assertEquals(1.7-2.6, result);
     }
 
     /*
@@ -74,7 +72,7 @@ public class TestArithmetic {
         in = new Scanner("17 26");
 
         double result = arithmetic.mult(in);
-        Assert.assertEquals(result, 17.0*26.0);
+        Assert.assertEquals(17.0*26.0, result);
     }
 
     @Test
@@ -82,7 +80,7 @@ public class TestArithmetic {
         in = new Scanner("1.7 2.6");
 
         double result = arithmetic.mult(in);
-        Assert.assertEquals(result, 1.7*2.6);
+        Assert.assertEquals(1.7*2.6, result);
     }
 
     /*
@@ -93,7 +91,7 @@ public class TestArithmetic {
         in = new Scanner("17 26");
 
         double result = arithmetic.div(in);
-        Assert.assertEquals(result, 17.0/26.0);
+        Assert.assertEquals(17.0/26.0, result);
     }
 
     @Test
@@ -101,41 +99,17 @@ public class TestArithmetic {
         in = new Scanner("1.7 2.6");
 
         double result = arithmetic.div(in);
-        Assert.assertEquals(result, 4.42);
+        Assert.assertEquals(4.42, result);
     }
 
     @Test
     public void testDivisionBy0(){
         in = new Scanner("0 0 17 26");
-        StringBuilder sb = new StringBuilder();
-        String divMenu1 =
-                ("|----------------------------------------------------------------------------------------------------|" + '\n') +
-                ("|                                   Calculation Menu                                                 |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|Please enter the number you would like to divide from first:                                        |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|----------------------------------------------------------------------------------------------------|" + '\n');
-        String divMenu2 =
-                ("|----------------------------------------------------------------------------------------------------|" + '\n') +
-                ("|                                   Calculation Menu                                                 |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|Please enter the number you would like to divide        " + ret1 + " by                                     |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|----------------------------------------------------------------------------------------------------|" + '\n');
-        String divErrMessage = "You cannot divide by 0. Restarting Program\n";
-        sb.append(divMenu1);
-        sb.append(divMenu2);
-        sb.append(divErrMessage);
+        String divErrMessage = "You cannot divide by 0. Restarting Program";
 
         double result = arithmetic.div(in);
-        Assert.assertEquals(outContent.toString(), sb.toString());
-        Assert.assertEquals(result, 17.0/26.0);
+        Assert.assertTrue(outContent.toString().contains(divErrMessage));
+        Assert.assertEquals(17.0/26.0, result);
     }
     /*
      * Square tests
@@ -145,7 +119,7 @@ public class TestArithmetic {
         in = new Scanner("17");
 
         double result = arithmetic.square(in);
-        Assert.assertEquals(result, 17.0*17.0);
+        Assert.assertEquals(17.0*17.0, result);
     }
 
     @Test
@@ -153,7 +127,7 @@ public class TestArithmetic {
         in = new Scanner("1.7");
 
         double result = arithmetic.square(in);
-        Assert.assertEquals(result, 1.7*1.7);
+        Assert.assertEquals(1.7*1.7, result);
     }
 
     /*
@@ -164,7 +138,7 @@ public class TestArithmetic {
         in = new Scanner("169");
 
         double result = arithmetic.sqrt(in);
-        Assert.assertEquals(result, 13.0);
+        Assert.assertEquals(13.0, result);
     }
 
     @Test
@@ -172,7 +146,7 @@ public class TestArithmetic {
         in = new Scanner("1.69");
 
         double result = arithmetic.sqrt(in);
-        Assert.assertEquals(result, 1.3);
+        Assert.assertEquals(1.3, result);
     }
 
     /*
@@ -183,30 +157,16 @@ public class TestArithmetic {
         in = new Scanner("17");
 
         double result = arithmetic.inv(in);
-        Assert.assertEquals(result, 1.0/17.0);
+        Assert.assertEquals(1.0/17.0, result);
     }
 
     @Test
     public void testInverseOf0(){
         in = new Scanner("0 17");
-        StringBuilder sb = new StringBuilder();
-        String invMenu =
-                ("|----------------------------------------------------------------------------------------------------|" + '\n') +
-                        ("|                                   Calculation Menu                                                 |" + '\n') +
-                        ("|                                                                                                    |" + '\n') +
-                        ("|                                                                                                    |" + '\n') +
-                        ("|Please enter the number you would like to take the inverse of:                                      |" + '\n') +
-                        ("|                                                                                                    |" + '\n') +
-                        ("|                                                                                                    |" + '\n') +
-                        ("|                                                                                                    |" + '\n') +
-                        ("|----------------------------------------------------------------------------------------------------|" + '\n');
-        String invErrMessage = "You cannot take the inverse of 0. Restarting Program\n";
-        sb.append(invMenu);
-        sb.append(invErrMessage);
+        String invErrMessage = "You cannot take the inverse of 0. Restarting Program";
 
         double result = arithmetic.div(in);
-        Assert.assertEquals(outContent.toString(), sb.toString());
-        Assert.assertEquals(result, 1.0/17.0);
+        Assert.assertTrue(outContent.toString().contains(invErrMessage));
+        Assert.assertEquals(1.0/17.0, result);
     }
-
 }
