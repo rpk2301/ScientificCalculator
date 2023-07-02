@@ -10,32 +10,29 @@ import org.sonatype.guice.bean.containers.Main;
  * Created by leon on 2/9/18.
  */
 public class TestMainApplication {
-    private MainApplication mainApp;
-
     @Before
     public void setup(){
-        mainApp = new MainApplication();
     }
 
     @Test
     public void testInitialMemoryValue(){
-        Assert.assertEquals(0.0, MainApplication.getMemory());
+        Assert.assertEquals(0.0, MainApplication.getMemory(), 0.01);
     }
 
     @Test
     public void testSetMemoryValue(){
         MainApplication.setMemory(9.1);
-        Assert.assertEquals(9.1, MainApplication.getMemory());
+        Assert.assertEquals(9.1, MainApplication.getMemory(), 0.01);
     }
 
     @Test
     public void testInitialCurrentValue(){
-        Assert.assertEquals(0.0, MainApplication.getCurrentVal());
+        Assert.assertEquals(0.0, MainApplication.getCurrentVal(), 0.01);
     }
 
     @Test
     public void testSetCurrentValue(){
          MainApplication.setval(9.1);
-         Assert.assertEquals(9.1, MainApplication.getCurrentVal());
+         Assert.assertEquals(9.1, MainApplication.getCurrentVal(), 0.01);
     }
 }

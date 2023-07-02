@@ -34,7 +34,7 @@ public class TestArithmetic {
         in = new Scanner("17 26");
 
         double result = arithmetic.add(in);
-        Assert.assertEquals(17.0+26.0, result);
+        Assert.assertEquals(17.0+26.0, result, 0.01);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class TestArithmetic {
         in = new Scanner("1.7 2.6");
 
         double result = arithmetic.add(in);
-        Assert.assertEquals(1.7+2.6, result);
+        Assert.assertEquals(1.7+2.6, result, 0.01);
     }
 
     /*
@@ -53,7 +53,7 @@ public class TestArithmetic {
         in = new Scanner("17 26");
 
         double result = arithmetic.sub(in);
-        Assert.assertEquals(-9.0, result);
+        Assert.assertEquals(-9.0, result, 0.01);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class TestArithmetic {
         in = new Scanner("1.7 2.6");
 
         double result = arithmetic.sub(in);
-        Assert.assertEquals(1.7-2.6, result);
+        Assert.assertEquals(1.7-2.6, result, 0.01);
     }
 
     /*
@@ -72,7 +72,7 @@ public class TestArithmetic {
         in = new Scanner("17 26");
 
         double result = arithmetic.mult(in);
-        Assert.assertEquals(17.0*26.0, result);
+        Assert.assertEquals(17.0*26.0, result, 0.01);
     }
 
     @Test
@@ -80,7 +80,7 @@ public class TestArithmetic {
         in = new Scanner("1.7 2.6");
 
         double result = arithmetic.mult(in);
-        Assert.assertEquals(1.7*2.6, result);
+        Assert.assertEquals(1.7*2.6, result, 0.01);
     }
 
     /*
@@ -91,7 +91,7 @@ public class TestArithmetic {
         in = new Scanner("17 26");
 
         double result = arithmetic.div(in);
-        Assert.assertEquals(17.0/26.0, result);
+        Assert.assertEquals(17.0/26.0, result, 0.01);
     }
 
     @Test
@@ -99,7 +99,7 @@ public class TestArithmetic {
         in = new Scanner("1.7 2.6");
 
         double result = arithmetic.div(in);
-        Assert.assertEquals(4.42, result);
+        Assert.assertEquals(1.7/2.6, result, 0.01);
     }
 
     @Test
@@ -109,7 +109,7 @@ public class TestArithmetic {
 
         double result = arithmetic.div(in);
         Assert.assertTrue(outContent.toString().contains(divErrMessage));
-        Assert.assertEquals(17.0/26.0, result);
+        Assert.assertEquals(17.0/26.0, result, 0.01);
     }
     /*
      * Square tests
@@ -119,7 +119,7 @@ public class TestArithmetic {
         in = new Scanner("17");
 
         double result = arithmetic.square(in);
-        Assert.assertEquals(17.0*17.0, result);
+        Assert.assertEquals(17.0*17.0, result, 0.01);
     }
 
     @Test
@@ -127,7 +127,7 @@ public class TestArithmetic {
         in = new Scanner("1.7");
 
         double result = arithmetic.square(in);
-        Assert.assertEquals(1.7*1.7, result);
+        Assert.assertEquals(1.7*1.7, result, 0.01);
     }
 
     /*
@@ -138,7 +138,7 @@ public class TestArithmetic {
         in = new Scanner("169");
 
         double result = arithmetic.sqrt(in);
-        Assert.assertEquals(13.0, result);
+        Assert.assertEquals(13.0, result, 0.01);
     }
 
     @Test
@@ -146,7 +146,7 @@ public class TestArithmetic {
         in = new Scanner("1.69");
 
         double result = arithmetic.sqrt(in);
-        Assert.assertEquals(1.3, result);
+        Assert.assertEquals(1.3, result, 0.01);
     }
 
     /*
@@ -157,16 +157,16 @@ public class TestArithmetic {
         in = new Scanner("17");
 
         double result = arithmetic.inv(in);
-        Assert.assertEquals(1.0/17.0, result);
+        Assert.assertEquals(1.0/17.0, result, 0.01);
     }
 
     @Test
     public void testInverseOf0(){
         in = new Scanner("0 17");
-        String invErrMessage = "You cannot take the inverse of 0. Restarting Program";
+        String invErrMessage = "You cannot take the inverse of 0.";
 
         double result = arithmetic.div(in);
         Assert.assertTrue(outContent.toString().contains(invErrMessage));
-        Assert.assertEquals(1.0/17.0, result);
+        Assert.assertEquals(1.0/17.0, result, 0.01);
     }
 }
