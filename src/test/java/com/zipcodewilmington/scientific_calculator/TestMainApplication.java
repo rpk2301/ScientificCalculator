@@ -19,23 +19,23 @@ public class TestMainApplication {
 
     @Test
     public void testInitialMemoryValue(){
-        Assert.assertEquals(MainApplication.getMemory(), 0.0);
+        Assert.assertEquals(0.0, MainApplication.getMemory());
     }
 
     @Test
     public void testSetMemoryValue(){
         MainApplication.setMemory(9.1);
-        Assert.assertEquals(MainApplication.getMemory(), 9.1);
+        Assert.assertEquals(9.1, MainApplication.getMemory());
     }
 
     @Test
     public void testInitialCurrentValue(){
-        Assert.assertEquals(MainApplication.getCurrentVal(), 0.0);
+        Assert.assertEquals(0.0, MainApplication.getCurrentVal());
     }
 
     @Test
     public void testSetCurrentValue(){
          MainApplication.setval(9.1);
-         Assert.assertEquals(MainApplication.getCurrentVal(), 9.1);
+         Assert.assertEquals(9.1, MainApplication.getCurrentVal());
     }
 }
