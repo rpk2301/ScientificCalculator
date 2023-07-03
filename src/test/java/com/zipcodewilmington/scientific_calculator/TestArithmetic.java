@@ -105,7 +105,7 @@ public class TestArithmetic {
     @Test
     public void testDivisionBy0(){
         in = new Scanner("0 0 17 26");
-        String divErrMessage = "You cannot divide by 0. Restarting Program";
+        String divErrMessage = "You cannot divide by 0.";
 
         double result = arithmetic.div(in);
         Assert.assertTrue(outContent.toString().contains(divErrMessage));
@@ -165,7 +165,7 @@ public class TestArithmetic {
         in = new Scanner("0 17");
         String invErrMessage = "You cannot take the inverse of 0.";
 
-        double result = arithmetic.div(in);
+        double result = arithmetic.inv(in);
         Assert.assertTrue(outContent.toString().contains(invErrMessage));
         Assert.assertEquals(1.0/17.0, result, 0.01);
     }

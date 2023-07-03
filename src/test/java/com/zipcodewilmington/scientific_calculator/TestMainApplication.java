@@ -26,13 +26,9 @@ public class TestMainApplication {
     }
 
     @Test
-    public void testInitialCurrentValue(){
+    public void testCurrentValue(){
         Assert.assertEquals(0.0, MainApplication.getCurrentVal(), 0.01);
-    }
-
-    @Test
-    public void testSetCurrentValue(){
-         MainApplication.setval(9.1);
-         Assert.assertEquals(9.1, MainApplication.getCurrentVal(), 0.01);
+        MainApplication.setval(9.1);
+        Assert.assertEquals(9.1, MainApplication.getCurrentVal(), 0.01);
     }
 }
