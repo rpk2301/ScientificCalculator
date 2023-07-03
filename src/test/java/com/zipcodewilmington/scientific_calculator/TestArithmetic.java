@@ -31,7 +31,7 @@ public class TestArithmetic {
      */
     @Test
     public void testAdditionInts(){
-        in = new Scanner("17 26");
+        in = new Scanner("17 26 \n");
 
         double result = arithmetic.add(in);
         Assert.assertEquals(17.0+26.0, result, 0.01);
@@ -39,7 +39,7 @@ public class TestArithmetic {
 
     @Test
     public void testAdditionDoubles(){
-        in = new Scanner("1.7 2.6");
+        in = new Scanner("1.7 2.6 \n");
 
         double result = arithmetic.add(in);
         Assert.assertEquals(1.7+2.6, result, 0.01);
@@ -50,7 +50,7 @@ public class TestArithmetic {
      */
     @Test
     public void testSubtractionInts(){
-        in = new Scanner("17 26");
+        in = new Scanner("17 26 \n");
 
         double result = arithmetic.sub(in);
         Assert.assertEquals(-9.0, result, 0.01);
@@ -58,7 +58,7 @@ public class TestArithmetic {
 
     @Test
     public void testSubtractionDoubles(){
-        in = new Scanner("1.7 2.6");
+        in = new Scanner("1.7 2.6 \n");
 
         double result = arithmetic.sub(in);
         Assert.assertEquals(1.7-2.6, result, 0.01);
@@ -69,7 +69,7 @@ public class TestArithmetic {
      */
     @Test
     public void testMultiplicationInts(){
-        in = new Scanner("17 26");
+        in = new Scanner("17 26 \n");
 
         double result = arithmetic.mult(in);
         Assert.assertEquals(17.0*26.0, result, 0.01);
@@ -77,7 +77,7 @@ public class TestArithmetic {
 
     @Test
     public void testMultiplicationDoubles(){
-        in = new Scanner("1.7 2.6");
+        in = new Scanner("1.7 2.6 \n");
 
         double result = arithmetic.mult(in);
         Assert.assertEquals(1.7*2.6, result, 0.01);
@@ -88,7 +88,7 @@ public class TestArithmetic {
      */
     @Test
     public void testDivisionInts(){
-        in = new Scanner("17 26");
+        in = new Scanner("17 26 \n");
 
         double result = arithmetic.div(in);
         Assert.assertEquals(17.0/26.0, result, 0.01);
@@ -96,7 +96,7 @@ public class TestArithmetic {
 
     @Test
     public void testDivisionDoubles(){
-        in = new Scanner("1.7 2.6");
+        in = new Scanner("1.7 2.6 \n");
 
         double result = arithmetic.div(in);
         Assert.assertEquals(1.7/2.6, result, 0.01);
@@ -104,7 +104,7 @@ public class TestArithmetic {
 
     @Test
     public void testDivisionBy0(){
-        in = new Scanner("0 0 17 26");
+        in = new Scanner("0 \n 0 \n 17 26 \n");
         String divErrMessage = "You cannot divide by 0.";
 
         double result = arithmetic.div(in);
@@ -116,7 +116,7 @@ public class TestArithmetic {
      */
     @Test
     public void testSquareInts(){
-        in = new Scanner("17");
+        in = new Scanner("17 \n");
 
         double result = arithmetic.square(in);
         Assert.assertEquals(17.0*17.0, result, 0.01);
@@ -124,7 +124,7 @@ public class TestArithmetic {
 
     @Test
     public void testSquareDoubles(){
-        in = new Scanner("1.7");
+        in = new Scanner("1.7 \n");
 
         double result = arithmetic.square(in);
         Assert.assertEquals(1.7*1.7, result, 0.01);
@@ -135,7 +135,7 @@ public class TestArithmetic {
      */
     @Test
     public void testSquareRootInts(){
-        in = new Scanner("169");
+        in = new Scanner("169 \n");
 
         double result = arithmetic.sqrt(in);
         Assert.assertEquals(13.0, result, 0.01);
@@ -143,7 +143,7 @@ public class TestArithmetic {
 
     @Test
     public void testSquareRootDoubles(){
-        in = new Scanner("1.69");
+        in = new Scanner("1.69 \n");
 
         double result = arithmetic.sqrt(in);
         Assert.assertEquals(1.3, result, 0.01);
@@ -154,7 +154,7 @@ public class TestArithmetic {
      */
     @Test
     public void testInverse(){
-        in = new Scanner("17");
+        in = new Scanner("17 \n");
 
         double result = arithmetic.inv(in);
         Assert.assertEquals(1.0/17.0, result, 0.01);
@@ -162,7 +162,7 @@ public class TestArithmetic {
 
     @Test
     public void testInverseOf0(){
-        in = new Scanner("0 17");
+        in = new Scanner("0 \n 17 \n");
         String invErrMessage = "You cannot take the inverse of 0.";
 
         double result = arithmetic.inv(in);

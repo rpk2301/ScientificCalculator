@@ -6,6 +6,7 @@ import java.lang.invoke.SwitchPoint;
 import java.util.Scanner;
 
 public class Arithmetic {
+    private Scanner scan;
     String welcome =
             ("|----------------------------------------------------------------------------------------------------|" + '\n') +
                     ("|                                   Welcome Menu                                  a) Addition        |" + '\n') +
@@ -19,6 +20,7 @@ public class Arithmetic {
                     ("|----------------------------------------------------------------------------------------------------|" + '\n');
 
     public Arithmetic() {
+        scan = new Scanner(System.in);
     }
 
     ;
@@ -71,7 +73,7 @@ public class Arithmetic {
                 }
                 DisplayMenu(run());
         }
-        results(response2);
+        results(run());
     }
 
     public static double add(Scanner response) {
@@ -98,6 +100,7 @@ public class Arithmetic {
                 ("|----------------------------------------------------------------------------------------------------|" + '\n');
         System.out.println(add2);
         double ret = response.nextDouble();
+        response.nextLine();//This statement consumes the nextline character.
 
         double a = (ret1 + ret);
         MainApplication.setval(a);
@@ -134,6 +137,7 @@ public class Arithmetic {
 
 
         double ret2 = response.nextDouble();
+        response.nextLine();//This statement consumes the nextline character.
         double fin = (ret1 - ret2);
         MainApplication.setval(fin);
         return fin;
@@ -165,6 +169,7 @@ public class Arithmetic {
                 ("|----------------------------------------------------------------------------------------------------|" + '\n');
         System.out.println(add2);
         double ret2 = response.nextDouble();
+        response.nextLine();//This statement consumes the nextline character.
         double f = (ret1 * ret2);
         MainApplication.setval(f);
         return f;
@@ -201,6 +206,7 @@ public class Arithmetic {
             ret1 = response.nextDouble();
             System.out.println(add2 + ret1 + add2pt2);
             ret2 = response.nextDouble();
+            response.nextLine();//This statement consumes the nextline character.
 
             if (ret2 == 0) {
                 System.out.println("You cannot divide by 0. Restarting Program");
@@ -237,6 +243,7 @@ public class Arithmetic {
 
         System.out.println(addi);
         double ret2 = response.nextDouble();
+        response.nextLine();//This statement consumes the nextline character.
         double f = (ret2 * ret2);
         MainApplication.setval(f);
         return f;
@@ -259,6 +266,7 @@ public class Arithmetic {
 
         System.out.println(addi);
         double ret2 = response.nextDouble();
+        response.nextLine();//This statement consumes the nextline character.
 
         double f = Math.sqrt(ret2);
         MainApplication.setval(f);
@@ -282,6 +290,7 @@ public class Arithmetic {
         do {
             System.out.println(addi);
             ret2 = response.nextDouble();
+            response.nextLine();//This statement consumes the nextline character.
 
             if (ret2 == 0) {
                 System.out.println("You cannot take the inverse of 0. Restarting Program");
@@ -318,7 +327,8 @@ public class Arithmetic {
                 ("|                                                          c)Quit App                                |" + '\n') +
                 ("|----------------------------------------------------------------------------------------------------|" + '\n');
         System.out.println(addi);
-        String response = response2.nextLine();
+        String response;
+        response= response2.nextLine();
         char character = response.toLowerCase().charAt(0);
         switch (character) {
             case 'a':
@@ -362,9 +372,9 @@ public class Arithmetic {
     }
 
 
-    public static Scanner run() {
-        Scanner response = new Scanner(System.in);
-        return response;
+    public Scanner run() {
+        return this.scan;
+
     }
 
     public void StoreMemory(double CurrentValue) {
