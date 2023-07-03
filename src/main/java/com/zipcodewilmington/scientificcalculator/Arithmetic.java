@@ -90,7 +90,7 @@ public class Arithmetic {
                 ("|                                   Calculation Menu                                                 |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
-                ("|Please enter the number you would like to add to:    " + ret1 + "                                    |" + '\n') +
+                ("|Please enter the number you would like to add to:    " + ret1 + "                                    " + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
@@ -124,7 +124,7 @@ public class Arithmetic {
                 ("|                                   Calculation Menu                                                 |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
-                ("|Please enter the number you would like to subtract from:    " + ret1 + "                            |" + '\n') +
+                ("|Please enter the number you would like to subtract from:    " + ret1 + "                             " + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
@@ -157,7 +157,7 @@ public class Arithmetic {
                 ("|                                   Calculation Menu                                                 |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
-                ("|Please enter the number you would like to multiply to:    " + ret1 + "                              |" + '\n') +
+                ("|Please enter the number you would like to multiply to:    " + ret1 + "                               " + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
@@ -187,7 +187,7 @@ public class Arithmetic {
                 ("|                                   Calculation Menu                                                 |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
-                ("|Please enter the number you would like to divide        " + ret1 + " by                                     |" + '\n') +
+                ("|Please enter the number you would like to divide        " + ret1 + " by                              " + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
@@ -289,12 +289,12 @@ public class Arithmetic {
 
         String addi = ("|----------------------------------------------------------------------------------------------------|" + '\n') +
                 ("|                                   Results Menu                                                     |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|                                                                                                    |" + '\n') +
+                ("|The result of your calculation is:    " + res + "                                                    " + '\n') +
                 ("|                                                          a)Clear display and do a new calculation  |" + '\n') +
-                ("|                                                          b)Store result in memory                  |" + '\n') +
-                ("|The result of your calculation is:    " + res + "                c)Quit App                           |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
-                ("|Please select what you would like to do next                                                        |" + '\n') +
-                ("|                                                                                                    |" + '\n') +
+                ("|Please select what you would like to do next              b)Store result in memory                  |" + '\n') +
+                ("|                                                          c)Quit App                                |" + '\n') +
                 ("|----------------------------------------------------------------------------------------------------|" + '\n');
         System.out.println(addi);
         String response = response2.nextLine();
@@ -356,7 +356,7 @@ public class Arithmetic {
                 ("|                                   Memory Menu            a)Go back to main menu                    |" + '\n') +
                 ("|                                                          b)Clear memory                            |" + '\n') +
                 ("|                                                          c)Quit App                                |" + '\n') +
-                ("|The current value of your memory is:     " + MainApplication.getMemory() + "                          |" + '\n') +
+                ("|The current value of your memory is:     " + MainApplication.getMemory() + "                         " + '\n') +
                 ("|                                                                                                    |" + '\n') +
                 ("|Please select what you would like to do next                                                        |" + '\n') +
                 ("|                                                                                                    |" + '\n') +
